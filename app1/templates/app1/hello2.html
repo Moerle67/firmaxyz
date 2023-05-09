@@ -2,7 +2,7 @@
 <html lang="de">
 
 <head>
-  <title>Django</title>
+  <title>{% block title %}Django{% endblock title %}</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,17 +10,17 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-  
+
   <header>
     <!-- place navbar here -->
     <nav class="navbar navbar-expand-sm bg-light justify-content-center sticky-top">
-      
+
       <a class="navbar-brand" href="#">
-           learnIT
+        learnIT
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -42,60 +42,72 @@
     </nav>
   </header>
   <main>
-    <div class="container bg-dark text-white">
-<h1 align="center">Hello World!</h1>
-<p align="center">Es begrüßt Sie ganz herzlich {{name}} hier auf dieser Seite.</p>
+    {% block h1 %}
+    <div class="container {% block farbe_h1 %}bg-dark{% endblock farbe_h1 %} text-white">
+      <h1 align="center">Hello World!</h1>
+      <p align="center">Es begrüßt Sie ganz herzlich {{name}} hier auf dieser Seite.</p>
     </div>
-<div class="container p-5 my-5 border">
-  <h1>Learning content</h1>
-  <h4 >Neue Lerninhalte jede Woche.</h4>
-  <div class="row align-items-center mt-5">
-    <div class="col">
-      <h5> Einführung in Datenbanken</h5>
-      <p>
-        datenbvanken sind toll
-      </p>
+    {% endblock h1 %}
+    {% block cont1 %}
+    <div class="container p-5 my-5 border">
+      <h1>Learning content</h1>
+      <h4>{% block text1 %}Neue Lerninhalte jede Woche.{% endblock text1 %} 
+      </h4>
+      <div class="row align-items-center mt-5">
+        <div class="col">
+          <h5> Einführung in Datenbanken</h5>
+          <p>
+            {% block t1 %}datenbvanken sind toll{% endblock t1 %}
+          </p>
+        </div>
+        <div class="col">
+          <h5> Fremdschlüssel und Beziehungen</h5>
+          <p>
+            fremdschlüssel sind keine primary key
+          </p>
+        </div>
+        <div class="col">
+          <h5>Das ER-Modell</h5>
+          <p>
+            das er modell ist toll, weil...
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <h5> Fremdschlüssel und Beziehungen</h5>
-      <p>
-        fremdschlüssel sind keine primary key
-      </p>
-    </div>
-    <div class="col">
-      <h5>Das ER-Modell</h5>
-      <p> 
-      das er modell ist toll, weil... 
-      </p>
-    </div>
-  </div>
-  </div>
-</div>
+    {% endblock cont1 %}
+    <div class="container p-5 my-5 bg-dark text-white">
+      <h1>Youtube Videos</h1>
+      <p>Hier findet Ihr einige tolle Videos zum Thema Datenbanken</p>
+      <div class="row align-items-center">
+        <div class="col">
+          <p> Einführung in Datenbanken</p>
+          <iframe width="250" height="150" src="https://www.youtube.com/embed/JPC8FsYwi9s" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="col">
+          <p> Fremdschlüssel und Beziehungen</p>
+          <iframe width="250" height="150" src="https://www.youtube.com/embed/H_6VfxAwVmw" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="col">
+          <p>Das ER-Modell</p>
+          <iframe width="250" height="150" src="https://www.youtube.com/embed/5E7I8pMLXQE" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
 
-<div class="container p-5 my-5 bg-dark text-white">
-  <h1>Youtube Videos</h1>
-  <p>Hier findet Ihr einige tolle Videos zum Thema Datenbanken</p>
-  <div class="row align-items-center">
-    <div class="col">
-      <p> Einführung in Datenbanken</p>
-      <iframe width="250" height="150" src="https://www.youtube.com/embed/JPC8FsYwi9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-    <div class="col">
-      <p> Fremdschlüssel und Beziehungen</p>
-      <iframe width="250" height="150" src="https://www.youtube.com/embed/H_6VfxAwVmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-    <div class="col">
-      <p>Das ER-Modell</p>
-      <iframe width="250" height="150" src="https://www.youtube.com/embed/5E7I8pMLXQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-</div>
 
-<div class="container p-5 my-5 border">
-  <h1>Fragen?</h1>
-  <p>dann wende Dich bitte an meinen geschätzten Kollegen: <a href="https://chat.openai.com/">Chat GPT</a></p>
-</div>
+    <div class="container p-5 my-5 border">
+      <h1>Fragen?</h1>
+      <p>dann wende Dich bitte an meinen geschätzten Kollegen: <a href="https://chat.openai.com/">Chat GPT</a></p>
+    </div>
   </main>
   <footer>
     <!-- place footer here -->
@@ -103,11 +115,11 @@
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
+    </script>
 </body>
 
 </html>
